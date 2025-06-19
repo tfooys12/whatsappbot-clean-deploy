@@ -1,3 +1,4 @@
+# Final clean render.yaml - ready for deployment
 services:
   - type: web
     name: whatsappbot-backend
@@ -5,4 +6,5 @@ services:
     plan: free
     buildCommand: mvn clean install
     startCommand: java -jar target/*.jar
+
 
