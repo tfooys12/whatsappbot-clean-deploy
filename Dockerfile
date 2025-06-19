@@ -1,14 +1,15 @@
-# Use OpenJDK image
-FROM openjdk:17-jdk-slim
+# Use an OpenJDK base image with Maven preinstalled
+FROM maven:3.9.5-eclipse-temurin-17
 
-# Set working directory inside container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy everything from your project into the container
+# Copy everything from your project folder into the container
 COPY . .
 
-# Build the project (you can use mvnw if you prefer)
-RUN ./mvnw clean install
+# Build the project using system Maven
+RUN mvn clean install
 
-# Set the command to run the built JAR
+# Set the command to run the built jar
 CMD ["java", "-jar", "target/whatsappbot-0.0.1-SNAPSHOT.jar"]
+
