@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build the project using system Maven
-RUN mvn clean install
+RUN mvn clean install -X
 
 # Set the command to run the built jar
 CMD ["java", "-jar", "target/whatsappbot-0.0.1-SNAPSHOT.jar"]
